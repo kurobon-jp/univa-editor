@@ -4,6 +4,9 @@
 
 ---
 
+## Preview
+![screenshot](images/ss.png)
+
 ## Overview
 Univa Editor is a VS Code extension that allows you to manage master data using separate schema and data files.  
 By combining `.ues` schema files with `.uet` data files, you can edit data in a spreadsheet-like interface directly inside VS Code.
@@ -102,5 +105,3 @@ id	name	is_hero	class	skills
 4	Daryl	0	3	3
 5	Eric	1	2	2,3,4
 ```
-
-![screenshot](images/ss.png)

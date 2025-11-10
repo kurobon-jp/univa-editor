@@ -9,18 +9,19 @@
 
 ## Overview
 Univa Editor is a VS Code extension that allows you to manage master data using separate schema and data files.  
-By combining `.ues` schema files with `.uet` data files, you can edit data in a spreadsheet-like interface directly inside VS Code.
+By combining `.ues` schema files with `.uec/.uet` data files, you can edit data in a spreadsheet-like interface directly inside VS Code.
 
 ### Schema File (`.ues`)
-- Define column types (string, number, boolean, list)
+- Define column types (string, integer, decimal, boolean, list)
 - Add comments or set column widths
 
-### Data File (`.uet`)
-- TSV format for easy data management
+### Data File (`.uec/.uet`)
+- CSV or TSV format for easy data management
 - Supports input assistance based on schema
 
 ### Supported Data Types
-- `string` / `number`
+- `none` (default)
+- `integer` / `decimal`
 - `boolean` (checkbox)  
 - `list` (dropdown)  
 - `multiple list` (multi-select dropdown)
@@ -35,13 +36,14 @@ By combining `.ues` schema files with `.uet` data files, you can edit data in a 
 - Configuration file editing  
 - Small team data sharing
 
----
-
-## Key Features
-- Separate schema (`.ues`) and data (`.uet`) files  
+### Features
+- Separate the schema file (`.ues`) and the data file (`.uec/.uet`), which have identical file names and work as a pair.  
+  - Example: `characters.ues` ↔ `characters.uec`  
 - Spreadsheet-like data entry  
 - Input assistance for each data type (checkbox, dropdown, multi-select)  
 - Seamless editing within VS Code
+- Column display order depends on the definition in the `.ues` file
+- The header row is protected and cannot be edited
 
 ---
 
@@ -52,11 +54,10 @@ By combining `.ues` schema files with `.uet` data files, you can edit data in a 
   "columns": {
     "id": {
       "comment": "Character ID",
-      "type": "number"
+      "type": "integer"
     },
     "name": {
-      "comment": "Character Name",
-      "type": "string"
+      "comment": "Character Name"
     },
     "is_hero": {
       "comment": "Is Hero?",
@@ -96,12 +97,17 @@ By combining `.ues` schema files with `.uet` data files, you can edit data in a 
 
 ```
 
-## Sample Data: `characters.uet`
-```tsv
-id	name	is_hero	class	skills
-1	Alice	1	0	1
-2	Bob	0	3	2,3
-3	Serena	1	1	1,3
-4	Daryl	0	3	3
-5	Eric	1	2	2,3,4
+## Sample Data: `characters.uec`
+```csv
+id,name,is_hero,class,skills
+1,Alice,1,0,1
+2,Bob,0,3,2,3
+3,Serena,1,1,1,3
+4,Daryl,0,3,3
+5,Eric,1,2,2,3,4
 ```
+
+## Technology Stack
+
+This extension is powered by 
+- [Univer](https://github.com/dream-num/univer)

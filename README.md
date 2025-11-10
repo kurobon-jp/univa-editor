@@ -101,10 +101,10 @@ By combining `.ues` schema files with `.uec/.uet` data files, you can edit data 
 ```csv
 id,name,is_hero,class,skills
 1,Alice,1,0,1
-2,Bob,0,3,2,3
-3,Serena,1,1,1,3
+2,Bob,0,3,"2,3"
+3,Serena,1,1,"1,3"
 4,Daryl,0,3,3
-5,Eric,1,2,2,3,4
+5,Eric,1,2,"2,3,4"
 ```
 
 ## Technology Stack
